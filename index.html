@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ADMIN: PHAMHOA.NET - VIP 5.0 SUPER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #0a0a0c;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 51, 102, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(255, 153, 51, 0.08), transparent 25%);
+        }
+
+        /* --- VIỀN GRADIENT GLOW --- */
+        .gradient-border {
+            background: linear-gradient(135deg, #ff3366, #ff9933, #ff3366);
+            background-size: 200% 200%;
+            animation: gradientMove 3s ease infinite;
+            padding: 2px;
+            border-radius: 22px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.2);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- CARD GIAO DIỆN CHÍNH --- */
+        .card {
+            background-color: #161618;
+            border-radius: 20px;
+            padding: 35px 25px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            background: linear-gradient(to right, #ff3366, #ff9933);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: #8e8e93;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* --- INPUT FORM --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #aeaeae;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 16px;
+            background-color: #212124;
+            border: 1px solid #333336;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .form-control:focus {
+            border-color: #ff6b35;
+            background-color: #262629;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+        }
+
+        textarea.form-control {
+            resize: none;
+            min-height: 80px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ff6b35, #ff3366);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 6px 20px rgba(255, 51, 102, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #3a3a3c;
+            border-radius: 12px;
+            background-color: transparent;
+            color: #e5e5ea;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #212124;
+            border-color: #ff9933;
+            color: #ff9933;
+        }
+
+        /* --- ERROR ALERT --- */
+        .error-msg {
+            display: none;
+            color: #ff3366;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 5px;
+            animation: shake 0.4s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        /* --- HIỂN THỊ KẾT QUẢ & LOADING --- */
+        #loadingState {
+            display: none;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .spinner {
+            width: 45px;
+            height: 45px;
+            border: 4px solid rgba(255, 107, 53, 0.2);
+            border-top: 4px solid #ff3366;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 15px auto;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #resultArea {
+            display: none;
+            margin-top: 10px;
+            animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .result-box {
+            background: #1c1c1e;
+            border: 1px solid #333336;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #333336;
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .result-name { font-size: 14px; color: #aeaeae; }
+        .result-val { font-size: 18px; font-weight: 900; color: #ff9933; font-family: monospace;}
+
+        .fire-btn {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .fire-btn .result-val {
+            color: #ff3366;
+            font-size: 22px;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.4);
+        }
+
+        .result-note {
+            text-align: center;
+            font-size: 13px;
+            color: #8e8e93;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .brand-watermark {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #333336;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-border">
+        <div class="card">
+            <div class="header">
+                <h1>PHAMHOA.NET</h1>
+                <p>ĐỘ NHẠY 5.0 SUPER - HỆ THỐNG GARENA</p>
+            </div>
+            
+            <div id="mainForm">
+                <div class="form-group">
+                    <label>Tên Thiết Bị *</label>
+                    <input type="text" id="deviceName" class="form-control" placeholder="VD: iPhone 17 Pro Max, ROG Phone...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Hệ Điều Hành *</label>
+                    <select id="osSelect" class="form-control">
+                        <option value="" disabled selected>Chọn hệ điều hành</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Android">Android</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Password *</label>
+                    <input type="password" id="password" class="form-control" placeholder="Nhập password (Vip Only)">
+                    <div id="passError" class="error-msg">⚠️ Sai mật khẩu! Vui lòng ấn "Lấy password 5.0" để nhận pass chuẩn.</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nội dung (Tình trạng) *</label>
+                    <textarea id="content" class="form-control" placeholder="Mô tả chi tiết: Rung tâm, kéo hố đầu, kẹt tâm, vuốt nặng..."></textarea>
+                </div>
+                
+                <button class="btn-submit" onclick="startTrickCode()">TRÍCH XUẤT ĐỘ NHẠY</button>
+                <a href="https://zalo.me/84386265304" target="_blank" class="btn-secondary">Lấy password 5.0</a>
+            </div>
+
+            <!-- LOADING SCREEN -->
+            <div id="loadingState">
+                <div class="spinner"></div>
+                <p style="color: #ff6b35; font-weight: bold; font-size: 15px;">Đang phân tích cấu trúc máy và tính toán bù trừ...</p>
+            </div>
+
+            <!-- RESULT AREA -->
+            <div id="resultArea">
+                <div class="result-box" id="sensContent">
+                    <!-- Dữ liệu render vào đây -->
+                </div>
+                <p class="result-note">✅ Thông số đã được tối ưu riêng biệt cho <br><span id="displayDevice" style="color:#ff9933; font-weight:bold;"></span></p>
+                <button class="btn-secondary" onclick="resetForm()">Tính Toán Lại</button>
+                <div class="brand-watermark">© 2026 PHAMHOA.NET</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+        function clamp(val) { return Math.max(0, Math.min(200, val)); }
+
+        function startTrickCode() {
+            const deviceName = document.getElementById('deviceName').value.trim();
+            const osType = document.getElementById('osSelect').value;
+            const contentInput = document.getElementById('content').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const passError = document.getElementById('passError');
+
+            // Reset error
+            passError.style.display = 'none';
+
+            if(!deviceName || !osType || !contentInput || !pass) {
+                alert("⚠️ Cảnh báo: Vui lòng điền đầy đủ tất cả các trường dữ liệu!");
+                return;
+            }
+
+            // KIỂM TRA PASSWORD CỨNG
+            if(pass !== "PHAMHOA.NET") {
+                passError.style.display = 'block';
+                return;
+            }
+
+            document.getElementById('mainForm').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+
+            // Xử lý logic ngầm trong 1.5 giây
+            setTimeout(() => {
+                document.getElementById('loadingState').style.display = 'none';
+                generateSens(deviceName, osType, contentInput.toLowerCase());
+            }, 1500);
+        }
+
+        /* --- THUẬT TOÁN ĐỘ NHẠY VIP CHUẨN XÁC CAO --- */
+        function generateSens(deviceNameRaw, osType, issueText) {
+            let s1, s2, s3, s4;
+            const deviceName = deviceNameRaw.toLowerCase();
+
+            // ĐỌC THÔNG SỐ BASE TỪ TÊN MÁY VÀ HỆ ĐIỀU HÀNH
+            if (osType === "iOS") {
+                if (deviceName.includes("ipad")) {
+                    s1 = rand(110, 145); s2 = rand(95, 130); s3 = rand(110, 140); s4 = rand(110, 140);
+                } else if (deviceName.includes("17 pro max") || deviceName.includes("16 pro max") || deviceName.includes("15 pro max")) {
+                    // Dòng máy siêu cấp cấp
+                    s1 = rand(135, 175); s2 = rand(120, 160); s3 = rand(135, 170); s4 = rand(135, 170);
+                } else if (deviceName.includes("11") || deviceName.includes("12") || deviceName.includes("13") || deviceName.includes("14") || deviceName.includes("15") || deviceName.includes("16") || deviceName.includes("17")) {
+                    s1 = rand(145, 190); s2 = rand(130, 175); s3 = rand(145, 185); s4 = rand(145, 185);
+                } else {
+                    // iPhone cũ (Cảm ứng kém nhạy hơn -> Base cao hơn)
+                    s1 = rand(175, 200); s2 = rand(160, 195); s3 = rand(165, 200); s4 = rand(165, 200);
+                }
+            } else { 
+                // Android
+                if (deviceName.includes("samsung") && (deviceName.includes("ultra") || deviceName.includes("fold"))) {
+                    s1 = rand(155, 190); s2 = rand(150, 185); s3 = rand(155, 190); s4 = rand(155, 190);
+                } else if (deviceName.includes("rog") || deviceName.includes("redmagic") || deviceName.includes("black shark")) {
+                    // Gaming phone
+                    s1 = rand(130, 165); s2 = rand(125, 155); s3 = rand(130, 160); s4 = rand(130, 160);
+                } else if (deviceName.includes("xiaomi") || deviceName.includes("redmi") || deviceName.includes("poco")) {
+                    s1 = rand(160, 195); s2 = rand(150, 190); s3 = rand(155, 195); s4 = rand(155, 195);
+                } else {
+                    s1 = rand(170, 200); s2 = rand(160, 195); s3 = rand(165, 195); s4 = rand(165, 195);
+                }
+            }
+
+            let fireBtn = rand(36, 48); 
+            let freeCam = rand(40, 85);
+
+            // BÙ TRỪ THÔNG SỐ DỰA TRÊN TEXT TÌNH TRẠNG NGƯỜI DÙNG NHẬP
+            let modifier = 0;
+            let fireMod = 0;
+
+            if (issueText.includes('rung') || issueText.includes('giật') || issueText.includes('lệch')) {
+                modifier -= 15; // Giảm độ nhạy để gìm tâm chuẩn hơn
+            }
+            if (issueText.includes('nặng') || issueText.includes('lag') || issueText.includes('chậm') || issueText.includes('kẹt')) {
+                modifier += 22; // Máy kéo nặng -> Kích ảo độ nhạy lên cao
+            }
+            if (issueText.includes('hố') || issueText.includes('vượt') || issueText.includes('qua đầu') || issueText.includes('cao')) {
+                modifier -= 10; // Kéo lố qua đầu -> Kìm nhẹ lại
+                fireMod -= 4;   // Nút bắn nhỏ lại để căn khoảng cách vuốt dễ hơn
+            }
+            if (issueText.includes('full đỏ') || issueText.includes('cận') || issueText.includes('gần') || issueText.includes('mp40') || issueText.includes('shotgun')) {
+                fireMod += 5; // Cận chiến ưu tiên nút bắn nhỉnh hơn một chút
+            }
+
+            // Chốt thông số (Đảm bảo luôn nằm trong dải 0-200)
+            s1 = clamp(s1 + modifier);
+            s2 = clamp(s2 + Math.floor(modifier * 0.8));
+            s3 = clamp(s3 + Math.floor(modifier * 0.7));
+            s4 = clamp(s4 + Math.floor(modifier * 0.7));
+            fireBtn = Math.max(30, Math.min(65, fireBtn + fireMod)); 
+
+            // Cập nhật tên máy khách đã nhập lên giao diện
+            document.getElementById('displayDevice').innerText = deviceNameRaw.toUpperCase();
+
+            // Render HTML
+            document.getElementById('sensContent').innerHTML = `
+                <div class="result-item">
+                    <span class="result-name">Nhìn xung quanh:</span>
+                    <span class="result-val">${s1}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-name">Ống nhắm Red Dot:</span>
+                    <span class="result-val">${s2}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-name">Ống nhắm 2x:</span>
+                    <span class="result-val">${s3}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-name">Ống nhắm 4x:</span>
+                    <span class="result-val">${s4}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-name">Nút Camera tự do:</span>
+                    <span class="result-val">${freeCam}</span>
+                </div>
+                <div class="fire-btn">
+                    <span class="result-name" style="color:#ffffff; font-weight:700;">NÚT BẮN (SIZE):</span>
+                    <span class="result-val">${fireBtn}%</span>
+                </div>
+            `;
+            
+            document.getElementById('resultArea').style.display = 'block';
+        }
+
+        function resetForm() {
+            document.getElementById('resultArea').style.display = 'none';
+            document.getElementById('mainForm').style.display = 'block';
+            document.getElementById('content').value = '';
+            // Reset lại pass luôn để bảo mật
+            document.getElementById('password').value = '';
+        }
+    </script>
+</body>
+</html>
